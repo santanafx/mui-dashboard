@@ -1,14 +1,14 @@
 import { styled } from '@mui/system';
 
 export const DivLogoContainer = styled('div')(() => ({
-  width: '100%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
 }));
 
 export const DivImageContainer = styled('div')(() => ({
-  width: '40%',
+  width: '30%',
+  minWidth: '50px',
 }));
 
 export const ImgLogo = styled('img')(() => ({
