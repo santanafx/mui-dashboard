@@ -6,7 +6,11 @@ export const DivTemplateContainer = styled('div')(() => ({
   display: 'flex',
 }));
 
-export const DivHeaderContainer = styled('div')(() => ({}));
+export const DivHeaderContainer = styled('div')(() => ({
+  margin: '0 auto',
+  width: '100%',
+  borderBottom: `1px solid ${dividerColors}`,
+}));
 
 export const DivSidebarContainer = styled('div')(() => ({
   width: '200px',
