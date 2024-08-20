@@ -7,7 +7,7 @@ export const Logo = () => {
   return (
     <DivLogoContainer>
       <DivImageContainer>
-        <ImgLogo src={randomImage} alt="Logo" />
+        <ImgLogo src={randomImage} alt="Logo" loading="lazy" />
       </DivImageContainer>
       <Typography>Dashboard INC.</Typography>
     </DivLogoContainer>
