@@ -60,7 +60,7 @@ export const Headbar = () => {
             sx={{ borderRadius: '50%' }}
           />
           <DivUserData>
-            <Typography>User's Name</Typography>
+            <Typography>Users Name</Typography>
             <Typography fontSize="sm">Front end developer</Typography>
           </DivUserData>
         </DivAvatar>
