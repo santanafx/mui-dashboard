@@ -17,8 +17,8 @@ import {
 } from './Headbar.styles';
 
 export const Headbar = () => {
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const [searchInput, setSearchInput] = useState('');
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+  const [searchInput, setSearchInput] = useState<string>('');
 
   return (
     <>
