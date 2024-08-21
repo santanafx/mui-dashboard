@@ -1,23 +1,22 @@
+import { CardTable } from '../../Molecules/CardTable/CardTable';
 import { Headbar } from '../../Molecules/Headbar/Headbar';
-import { Logo } from '../../Molecules/Logo/Logo';
-import { Sidebar } from '../../Molecules/Sidebar/Sidebar';
-import { TemplateHomeProps } from './TemplateHome.interface';
 import {
   DivHeaderContainer,
-  DivSidebarContainer,
   DivTemplateContainer,
+  SectionMainContent,
 } from './TemplateHome.styles';
 
-export const TemplateHome = ({}: TemplateHomeProps) => {
+export const TemplateHome = () => {
   return (
-    <DivTemplateContainer>
-      <DivSidebarContainer>
-        <Logo />
-        <Sidebar />
-      </DivSidebarContainer>
+    <>
       <DivHeaderContainer>
         <Headbar />
       </DivHeaderContainer>
-    </DivTemplateContainer>
+      <DivTemplateContainer>
+        <SectionMainContent>
+          <CardTable />
+        </SectionMainContent>
+      </DivTemplateContainer>
+    </>
   );
 };
