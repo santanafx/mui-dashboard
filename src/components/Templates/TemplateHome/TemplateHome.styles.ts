@@ -18,3 +18,8 @@ export const DivSidebarContainer = styled('div')(() => ({
   height: '100vh',
   borderRight: `1px solid ${dividerColors}`,
 }));
+
+export const SectionMainContent = styled('section')(() => ({
+  margin: '50px auto',
+  width: '95%',
+}));
