@@ -95,12 +95,39 @@ export const CardTable = () => {
             boxShadow: 'lg',
           }}
         >
-          <NutritionModal
-            open={open}
-            setOpen={setOpen}
-            foodTable={foodTable}
-            setFoodTable={setFoodTable}
-          />
+          {selectTableItem && (
+            <NutritionModal
+              open={openEditModal}
+              setOpen={setOpenEditModal}
+              selectTableItem={selectTableItem}
+            />
+          )}
+        </Sheet>
+      </Modal>
+      <Modal
+        aria-labelledby="modal-title"
+        aria-describedby="modal-desc"
+        open={openDeleteModal}
+        onClose={() => setOpenDeleteModal(false)}
+        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      >
+        <Sheet
+          variant="soft"
+          sx={{
+            maxWidth: 500,
+            minWidth: 450,
+            borderRadius: 'md',
+            p: 3,
+            boxShadow: 'lg',
+          }}
+        >
+          {selectTableItem && (
+            <DeleteNutritionModal
+              open={openDeleteModal}
+              setOpen={setOpenDeleteModal}
+              selectTableItem={selectTableItem}
+            />
+          )}
         </Sheet>
       </Modal>
     </>
