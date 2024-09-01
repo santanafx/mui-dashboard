@@ -74,6 +74,7 @@ export const CardTable = () => {
               <th>Fat&nbsp;(g)</th>
               <th>Carbs&nbsp;(g)</th>
               <th>Protein&nbsp;(g)</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
