@@ -1,7 +1,8 @@
 export interface FoodTableProps {
+  id?: string;
   name: string;
-  calories: number;
-  fat: number;
-  carbs: number;
-  protein: number;
+  calories: string;
+  fat: string;
+  carbs: string;
+  protein: string;
 }
