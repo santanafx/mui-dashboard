@@ -54,7 +54,7 @@ export const CardTable = () => {
         <Divider sx={{ marginBottom: '20px' }} />
         <Button
           startDecorator={<AddRoundedIcon />}
-          onClick={() => setOpen(true)}
+          onClick={() => setopenAddModal(true)}
         >
           Add items
         </Button>
