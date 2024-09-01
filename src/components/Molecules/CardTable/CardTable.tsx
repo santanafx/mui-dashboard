@@ -7,31 +7,32 @@ import { FoodTableProps } from './CardTable.interface';
 import { DivContainer, DivTitle } from './CardTable.styles';
 
 export const CardTable = () => {
-  const [open, setOpen] = useState<boolean>(false);
-  const [foodTable, setFoodTable] = useState<FoodTableProps[]>([
-    {
-      name: 'Frozen yoghurt',
-      calories: 159,
-      fat: 6.0,
-      carbs: 24,
-      protein: 4.0,
-    },
-    {
-      name: 'Ice cream sandwich',
-      calories: 237,
-      fat: 9.0,
-      carbs: 37,
-      protein: 4.3,
-    },
-    { name: 'Eclair', calories: 262, fat: 16.0, carbs: 24, protein: 6.0 },
-    { name: 'Cupcake', calories: 305, fat: 3.7, carbs: 67, protein: 4.3 },
-    {
-      name: 'Gingerbread',
-      calories: 356,
-      fat: 16.0,
-      carbs: 49,
-      protein: 3.9,
-    },
+  const [openAddModal, setopenAddModal] = useState<boolean>(false);
+  const [openEditModal, setOpenEditModal] = useState<boolean>(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
+  const [foodTable, setFoodTable] = useState<FoodTableProps[]>([]);
+  const [selectTableItem, setSelectTableItem] = useState<FoodTableProps>();
+
+  //TODO refatorar para deixar mais profissional
+  useEffect(() => {
+    const response = getFoodTable();
+    response.then((data) => {
+      if (data) {
+        const foodTableData: FoodTableProps[] = data.map((item) => ({
+          name: item.name,
+          calories: item.calories,
+          fat: item.fat,
+          carbs: item.carbs,
+          protein: item.protein,
+          id: item.id,
+        }));
+        setFoodTable(foodTableData);
+      }
+    });
+  }, [
+    openAddModal === false &&
+      openDeleteModal === false &&
+      openEditModal == false,
   ]);
 
   return (
