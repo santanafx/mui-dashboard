@@ -113,8 +113,28 @@ export const CardTable = () => {
       <Modal
         aria-labelledby="modal-title"
         aria-describedby="modal-desc"
-        open={open}
-        onClose={() => setOpen(false)}
+        open={openAddModal}
+        onClose={() => setopenAddModal(false)}
+        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      >
+        <Sheet
+          variant="soft"
+          sx={{
+            maxWidth: 500,
+            minWidth: 450,
+            borderRadius: 'md',
+            p: 3,
+            boxShadow: 'lg',
+          }}
+        >
+          <NutritionModal open={openAddModal} setOpen={setopenAddModal} />
+        </Sheet>
+      </Modal>
+      <Modal
+        aria-labelledby="modal-title"
+        aria-describedby="modal-desc"
+        open={openEditModal}
+        onClose={() => setOpenEditModal(false)}
         sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
       >
         <Sheet
