@@ -73,6 +73,26 @@ export const CardTable = () => {
                 <td>{food.fat}</td>
                 <td>{food.carbs}</td>
                 <td>{food.protein}</td>
+                <td>
+                  <Box sx={{ display: 'flex', gap: 1 }}>
+                    <Button
+                      size="sm"
+                      variant="plain"
+                      color="neutral"
+                      onClick={() => setOpenEditModal(true)}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="soft"
+                      color="danger"
+                      onClick={() => setOpenDeleteModal(true)}
+                    >
+                      Delete
+                    </Button>
+                  </Box>
+                </td>
               </tr>
             ))}
           </tbody>
