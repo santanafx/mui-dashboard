@@ -9,7 +9,7 @@ export const Logo = () => {
       <DivImageContainer>
         <ImgLogo src={randomImage} alt="Logo" loading="lazy" />
       </DivImageContainer>
-      <Typography>Dashboard INC.</Typography>
+      <Typography>Nutrition INC.</Typography>
     </DivLogoContainer>
   );
 };
