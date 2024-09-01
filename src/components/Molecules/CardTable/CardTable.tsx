@@ -67,7 +67,7 @@ export const CardTable = () => {
           </thead>
           <tbody>
             {foodTable.map((food) => (
-              <tr key={food.name}>
+              <tr key={`${food.id}`} onClick={() => setSelectTableItem(food)}>
                 <td>{food.name}</td>
                 <td>{food.calories}</td>
                 <td>{food.fat}</td>
