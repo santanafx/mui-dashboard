@@ -1,8 +1,18 @@
 import { useState } from 'react';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
-import { Button, Divider, Modal, Sheet, Table, Typography } from '@mui/joy';
+import {
+  Box,
+  Button,
+  Divider,
+  Modal,
+  Sheet,
+  Table,
+  Typography,
+} from '@mui/joy';
 
-import { NutritionModal } from '../NutritionModal/NutritionModal';
+import { getFoodTable } from '../../../Services/CardTable/CardTable.service.js';
+import { DeleteNutritionModal } from '../DeleteNutritionModal/DeleteNutritionModal.js';
+import { NutritionModal } from '../NutritionModal/NutritionModal.js';
 import { FoodTableProps } from './CardTable.interface';
 import { DivContainer, DivTitle } from './CardTable.styles';
 
