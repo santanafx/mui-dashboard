@@ -13,11 +13,17 @@ import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import ListItemContent from '@mui/joy/ListItemContent';
 
+import { ListItemSideBar } from '../ListItemSideBar/ListItemSideBar';
 import {
   DivAdminContainer,
   DivConfigurationsContainer,
   DivContainer,
   DivLogoutContainer,
+  LogOutListItem,
+  UserList,
+  UserListItem,
+  UserListItemFontSize,
+  UserTypography,
 } from './Sidebar.styles';
 
 export const Sidebar = () => {
@@ -35,9 +41,7 @@ export const Sidebar = () => {
             >
               <GroupRoundedIcon />
               <ListItemContent>
-                <Typography level="title-sm" sx={{ userSelect: 'none' }}>
-                  Users
-                </Typography>
+                <UserTypography level="title-sm">Users</UserTypography>
               </ListItemContent>
               <KeyboardArrowDownIcon
                 sx={{ transform: openUserList ? 'rotate(180deg)' : 'none' }}
@@ -45,8 +49,8 @@ export const Sidebar = () => {
             </ListItemButton>
 
             {openUserList && (
-              <List sx={{ gap: 0.5, border: 'none' }}>
-                <ListItem sx={{ mt: 0.5, fontSize: '0.82rem' }}>
+              <UserList>
+                <UserListItem>
                   <ListItemButton
                     role="menuitem"
                     component="a"
@@ -54,80 +58,42 @@ export const Sidebar = () => {
                   >
                     My profile
                   </ListItemButton>
-                </ListItem>
-                <ListItem sx={{ fontSize: '0.82rem' }}>
+                </UserListItem>
+                <UserListItemFontSize>
                   <ListItemButton>Create a new user</ListItemButton>
-                </ListItem>
-                <ListItem sx={{ fontSize: '0.82rem' }}>
+                </UserListItemFontSize>
+                <UserListItemFontSize>
                   <ListItemButton>Roles & permission</ListItemButton>
-                </ListItem>
-              </List>
+                </UserListItemFontSize>
+              </UserList>
             )}
           </ListItem>
-
-          <ListItem>
-            <ListItemButton>
-              <HomeRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Home</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem>
-            <ListItemButton>
-              <DashboardRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Dashboard</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem>
-            <ListItemButton>
-              <ShoppingCartRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Orders</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
+          <ListItemSideBar text="Home" icon={<HomeRoundedIcon />} />
+          <ListItemSideBar text="Dashboard" icon={<DashboardRoundedIcon />} />
+          <ListItemSideBar text="Orders" icon={<ShoppingCartRoundedIcon />} />
         </List>
       </DivAdminContainer>
-
       <Divider />
       <DivConfigurationsContainer>
         <List>
           <ListSubheader>CONFIGURATIONS</ListSubheader>
-          <ListItem>
-            <ListItemButton>
-              <AccountTreeRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Projects</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem>
-            <ListItemButton>
-              <SettingsEthernetRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Settings</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
+          <ListItemSideBar text="Projects" icon={<AccountTreeRoundedIcon />} />
+          <ListItemSideBar
+            text="Settings"
+            icon={<SettingsEthernetRoundedIcon />}
+          />
         </List>
       </DivConfigurationsContainer>
-
       <Divider />
       <DivLogoutContainer>
-        <ListItem sx={{ marginLeft: '20px' }}>
+        <LogOutListItem>
           <ListItemButton>
             <LogoutRoundedIcon sx={{ fontSize: '2rem', marginRight: '10px' }} />
             <ListItemContent>
               <Typography level="title-sm">Logout</Typography>
             </ListItemContent>
           </ListItemButton>
-        </ListItem>
+        </LogOutListItem>
       </DivLogoutContainer>
     </DivContainer>
   );
