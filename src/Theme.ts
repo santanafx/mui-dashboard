@@ -1,6 +1,7 @@
 import { Components, CssVarsThemeOptions, extendTheme, Theme } from '@mui/joy';
 
 export const dividerColors = '#333';
+export const errorColor = '#f44336';
 
 export const theme = extendTheme({
   palette: {
