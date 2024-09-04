@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
-import {
-  Box,
-  Button,
-  Divider,
-  Modal,
-  Sheet,
-  Table,
-  Typography,
-} from '@mui/joy';
+import { Button, Typography } from '@mui/joy';
 
 import { getFoodTable } from '../../../Services/CardTable/CardTable.service.js';
+import { NutritionModal } from '../../Organisms/NutritionModal/NutritionModal.js';
 import { DeleteNutritionModal } from '../DeleteNutritionModal/DeleteNutritionModal.js';
-import { NutritionModal } from '../NutritionModal/NutritionModal.js';
 import { FoodTableProps } from './CardTable.interface';
-import { DivContainer, DivTitle } from './CardTable.styles';
+import {
+  DivCardTable,
+  DivContainer,
+  DividerCardTable,
+  DivTitle,
+  ModalCardTable,
+  SheetCardTable,
+  TableCardTable,
+} from './CardTable.styles';
 
 export const CardTable = () => {
   const [openAddModal, setopenAddModal] = useState<boolean>(false);
@@ -23,7 +23,6 @@ export const CardTable = () => {
   const [foodTable, setFoodTable] = useState<FoodTableProps[]>([]);
   const [selectTableItem, setSelectTableItem] = useState<FoodTableProps>();
 
-  //TODO refatorar para deixar mais profissional
   useEffect(() => {
     const response = getFoodTable();
     response.then((data) => {
@@ -51,21 +50,14 @@ export const CardTable = () => {
         <DivTitle>
           <Typography level="h1">Nutrition table</Typography>
         </DivTitle>
-        <Divider sx={{ marginBottom: '20px' }} />
+        <DividerCardTable />
         <Button
           startDecorator={<AddRoundedIcon />}
           onClick={() => setopenAddModal(true)}
         >
           Add items
         </Button>
-        <Table
-          stripe="odd"
-          hoverRow
-          sx={{
-            captionSide: 'top',
-            '& tbody': { bgcolor: 'background.surface' },
-          }}
-        >
+        <TableCardTable>
           <caption>Nutrition of your favorite menus.</caption>
           <thead>
             <tr>
@@ -86,7 +78,7 @@ export const CardTable = () => {
                 <td>{food.carbs}</td>
                 <td>{food.protein}</td>
                 <td>
-                  <Box sx={{ display: 'flex', gap: 1 }}>
+                  <DivCardTable>
                     <Button
                       size="sm"
                       variant="plain"
@@ -103,50 +95,30 @@ export const CardTable = () => {
                     >
                       Delete
                     </Button>
-                  </Box>
+                  </DivCardTable>
                 </td>
               </tr>
             ))}
           </tbody>
-        </Table>
+        </TableCardTable>
       </DivContainer>
-      <Modal
+      <ModalCardTable
         aria-labelledby="modal-title"
         aria-describedby="modal-desc"
         open={openAddModal}
         onClose={() => setopenAddModal(false)}
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
       >
-        <Sheet
-          variant="soft"
-          sx={{
-            maxWidth: 500,
-            minWidth: 450,
-            borderRadius: 'md',
-            p: 3,
-            boxShadow: 'lg',
-          }}
-        >
+        <SheetCardTable variant="soft">
           <NutritionModal open={openAddModal} setOpen={setopenAddModal} />
-        </Sheet>
-      </Modal>
-      <Modal
+        </SheetCardTable>
+      </ModalCardTable>
+      <ModalCardTable
         aria-labelledby="modal-title"
         aria-describedby="modal-desc"
         open={openEditModal}
         onClose={() => setOpenEditModal(false)}
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
       >
-        <Sheet
-          variant="soft"
-          sx={{
-            maxWidth: 500,
-            minWidth: 450,
-            borderRadius: 'md',
-            p: 3,
-            boxShadow: 'lg',
-          }}
-        >
+        <SheetCardTable variant="soft">
           {selectTableItem && (
             <NutritionModal
               open={openEditModal}
@@ -154,25 +126,15 @@ export const CardTable = () => {
               selectTableItem={selectTableItem}
             />
           )}
-        </Sheet>
-      </Modal>
-      <Modal
+        </SheetCardTable>
+      </ModalCardTable>
+      <ModalCardTable
         aria-labelledby="modal-title"
         aria-describedby="modal-desc"
         open={openDeleteModal}
         onClose={() => setOpenDeleteModal(false)}
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
       >
-        <Sheet
-          variant="soft"
-          sx={{
-            maxWidth: 500,
-            minWidth: 450,
-            borderRadius: 'md',
-            p: 3,
-            boxShadow: 'lg',
-          }}
-        >
+        <SheetCardTable variant="soft">
           {selectTableItem && (
             <DeleteNutritionModal
               open={openDeleteModal}
@@ -180,8 +142,8 @@ export const CardTable = () => {
               selectTableItem={selectTableItem}
             />
           )}
-        </Sheet>
-      </Modal>
+        </SheetCardTable>
+      </ModalCardTable>
     </>
   );
 };
