@@ -1,4 +1,4 @@
-import { FoodModalProps } from '../NutritionModal/NutritionModal.interface';
+import { FoodModalProps } from '../../Organisms/NutritionModal/NutritionModal.interface';
 
 export interface DeleteNutritionModalProps {
   open: boolean;
