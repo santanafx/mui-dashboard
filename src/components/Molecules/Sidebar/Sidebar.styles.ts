@@ -1,3 +1,4 @@
+import { List, ListItem, Typography } from '@mui/joy';
 import { styled } from '@mui/system';
 
 import { dividerColors } from '../../../Theme';
@@ -23,4 +24,26 @@ export const DivLogoutContainer = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-end',
+}));
+
+export const UserTypography = styled(Typography)(() => ({
+  userSelect: 'none',
+}));
+
+export const UserList = styled(List)(() => ({
+  gap: 0.5,
+  border: 'none',
+}));
+
+export const UserListItem = styled(ListItem)(() => ({
+  marginTop: 0.5,
+  fontSize: '0.82rem',
+}));
+
+export const UserListItemFontSize = styled(ListItem)(() => ({
+  fontSize: '0.82rem',
+}));
+
+export const LogOutListItem = styled(ListItem)(() => ({
+  marginLeft: '20px',
 }));
