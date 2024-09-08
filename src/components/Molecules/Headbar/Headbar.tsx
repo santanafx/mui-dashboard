@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { Avatar, IconButton, Input, Typography } from '@mui/joy';
 
+import { Sidebar } from '../../Organisms/Sidebar/Sidebar';
 import { Logo } from '../Logo/Logo';
-import { Sidebar } from '../Sidebar/Sidebar';
 import {
   DivAvatar,
   DivHeadbarContainer,
@@ -19,6 +19,16 @@ import {
 export const Headbar = () => {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.shiftKey && event.key === 'f') {
+      event.preventDefault();
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    }
+  };
 
   return (
     <>
@@ -51,6 +61,8 @@ export const Headbar = () => {
               </IconButton>
             }
             onChange={(event) => setSearchInput(event.target.value)}
+            ref={inputRef}
+            onKeyDown={(event) => handleKeyDown(event)}
           />
         </DivSearch>
         <DivAvatar>
