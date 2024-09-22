@@ -12,7 +12,12 @@ import {
   FoodModalProps,
   NutritionModalProps,
 } from './NutritionModal.interface';
-import { DivButtons, DivForm, DivFormButtons } from './NutritionModal.style';
+import {
+  DivButtons,
+  DivForm,
+  DivFormButtons,
+  DivTypography,
+} from './NutritionModal.style';
 
 const nutritionSchema = z.object({
   name: z.string().min(1, { message: 'Name is required' }),
@@ -39,6 +44,8 @@ export const NutritionModal = ({
       protein: selectTableItem ? selectTableItem.protein : '',
     },
   });
+
+  const isEditing = selectTableItem ? true : false;
 
   const handleNutritionForm = (data: FoodModalProps) => {
     const { name, calories, fat, carbs, protein } = data;
@@ -67,16 +74,18 @@ export const NutritionModal = ({
   return (
     <>
       <ModalClose variant="plain" sx={{ m: 1 }} />
-      <Typography
-        component="h2"
-        id="modal-title"
-        level="h4"
-        textColor="inherit"
-        fontWeight="lg"
-        mb={1}
-      >
-        Add item
-      </Typography>
+      <DivTypography>
+        <Typography
+          component="h2"
+          id="modal-title"
+          level="h4"
+          textColor="inherit"
+          fontWeight="lg"
+          mb={1}
+        >
+          {isEditing ? 'Edit item' : 'Add item'}
+        </Typography>
+      </DivTypography>
       <DivFormButtons>
         <DivForm>
           <InputForm
