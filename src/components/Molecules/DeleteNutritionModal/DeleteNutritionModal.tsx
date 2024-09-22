@@ -1,6 +1,6 @@
 import { Button, ModalClose, Typography } from '@mui/joy';
 
-import { deleteFood } from '../../../Services/CardTable/CardTable.service';
+import { deleteFood } from '../../../services/CardTable/CardTable.service';
 import { DeleteNutritionModalProps } from './DeleteNutritionModal.interface';
 import {
   DivButtons,
