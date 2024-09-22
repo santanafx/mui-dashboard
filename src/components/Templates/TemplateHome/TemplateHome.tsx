@@ -1,5 +1,5 @@
-import { CardTable } from '../../Molecules/CardTable/CardTable';
 import { Headbar } from '../../Molecules/Headbar/Headbar';
+import { CardTable } from '../../Organisms/CardTable/CardTable';
 import {
   DivHeaderContainer,
   DivTemplateContainer,

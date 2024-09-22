@@ -6,7 +6,7 @@ import * as z from 'zod';
 import {
   addFood,
   editFood,
-} from '../../../Services/CardTable/CardTable.service';
+} from '../../../services/CardTable/CardTable.service';
 import { InputForm } from '../../Molecules/InputForm/InputForm';
 import {
   FoodModalProps,
