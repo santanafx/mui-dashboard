@@ -1,9 +1,14 @@
 import { Input, Typography } from '@mui/joy';
 import { styled } from '@mui/system';
 
+export const DivTypography = styled('div')(() => ({
+  margin: '20px',
+}));
+
 export const DivFormButtons = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
+  margin: '20px',
 }));
 
 export const DivForm = styled('div')(() => ({
