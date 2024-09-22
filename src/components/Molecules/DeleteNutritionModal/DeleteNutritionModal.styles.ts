@@ -1,8 +1,13 @@
 import { styled } from '@mui/system';
 
+export const DivTypography = styled('div')(() => ({
+  margin: '20px',
+}));
+
 export const DivContainer = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
+  margin: '20px',
 }));
 
 export const DivButtons = styled('div')(() => ({
