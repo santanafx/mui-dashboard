@@ -6,7 +6,7 @@ import './Global.css';
 
 import { ThemeProvider } from '@mui/joy';
 
-import { Home } from './Pages/Home/Home.tsx';
+import { Home } from './pages/Home/Home.tsx';
 import { theme } from './Theme.ts';
 
 const router = createBrowserRouter([
