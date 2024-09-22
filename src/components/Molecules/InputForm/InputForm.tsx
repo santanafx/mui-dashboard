@@ -1,8 +1,9 @@
 import { Typography } from '@mui/joy';
 import { Controller } from 'react-hook-form';
 
+import { InputFormAtom } from '../../Atoms/InputFormAtom/InputFormAtom';
 import { InputFormProps } from './InputForm.interface';
-import { InputFormData, TypographyError } from './InputForm.styles';
+import { TypographyError } from './InputForm.styles';
 
 export const InputForm = ({
   control,
@@ -19,7 +20,7 @@ export const InputForm = ({
         name={name}
         render={({ field, fieldState: { error } }) => (
           <div>
-            <InputFormData placeholder={placeholder} type={type} {...field} />
+            <InputFormAtom placeholder={placeholder} type={type} {...field} />
             {error && <TypographyError>{error.message}</TypographyError>}
           </div>
         )}
