@@ -1,21 +1,16 @@
-import { Headbar } from '../../Molecules/Headbar/Headbar';
-import { CardTable } from '../../Organisms/CardTable/CardTable';
+import { TemplateHomeProps } from './TemplateHome.interface';
 import {
   DivHeaderContainer,
   DivTemplateContainer,
   SectionMainContent,
 } from './TemplateHome.styles';
 
-export const TemplateHome = () => {
+export const TemplateHome = ({ Headbar, CardTable }: TemplateHomeProps) => {
   return (
     <>
-      <DivHeaderContainer>
-        <Headbar />
-      </DivHeaderContainer>
+      <DivHeaderContainer>{Headbar}</DivHeaderContainer>
       <DivTemplateContainer>
-        <SectionMainContent>
-          <CardTable />
-        </SectionMainContent>
+        <SectionMainContent>{CardTable}</SectionMainContent>
       </DivTemplateContainer>
     </>
   );
